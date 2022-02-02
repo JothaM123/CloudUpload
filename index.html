@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href = "CloudUpload.ico" type = "image x/icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css" integrity="sha512-Jk4AqjWsdSzSWCSuQTfYRIF84Rq/eV0G2+tu07byYwHcbTGfdmLrHjUSwvzp5HvbiqK4ibmNwdcG49Y5RGYPTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" integrity="sha512-Pbb8o120v5/hN/a6LjF4N4Lxou+xYZ0QcVF8J6TWhBbHmctQWd8O6xTDmHpE/91OjPzCk4JRoiJsexHYg4SotQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <title>CloudUpload • Upload Your Images</title>
+</head>
+<body>
+    <h1>CloudUpload</h1>
+    <hr>
+    <p>CloudUpload is a free app that you can use to upload images online and share the images with your friends. This app is completely written in Python</p>
+    <h1>Source Code</h1>
+    <pre><code>
+        import os
+        import pyimgur
+
+        USER_ID = "YOUR_USER_ID"
+
+        print("""
+        █▀▀ █   █▀▀█ █  █ █▀▀▄ █  █ █▀▀█ █   █▀▀█ █▀▀█ █▀▀▄
+        █   █   █  █ █  █ █  █ █  █ █  █ █   █  █ █▄▄█ █  █
+        ▀▀▀ ▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀  ▀▀▀▀ █▀▀▀ ▀▀▀ ▀▀▀▀ ▀  ▀ ▀▀▀
+        """)
+        size= os.get_terminal_size().columns
+        print("─"*size)
+
+        imgur = pyimgur.Imgur(USER_ID)
+
+
+        while 1:
+            FILE = input("📄 Enter Your File Path With Extension.")
+            TITLE = input("🔤 Enter Title")
+            image = imgur.upload_image(FILE, title=TITLE)
+            print("🔗 Uploaded Link : " + image.link)
+            input("⌨️ Please Hit Enter To Upload Another Image...")
+
+
+    </code></pre>
+    <a href = "CloudUpload.exe"><button>Download for Windows</button></a>   
+</body>
+</html>
